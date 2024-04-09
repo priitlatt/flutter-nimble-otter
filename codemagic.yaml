@@ -1,5 +1,7 @@
 workflows:
   build-aab:
+    environment:
+      flutter: 3.19.5
     scripts:
       - flutter build appbundle --debug --flavor kukeleegu
     artifacts:
