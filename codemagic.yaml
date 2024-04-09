@@ -1,0 +1,6 @@
+workflows:
+  build-aab:
+    scripts:
+      - flutter build appbundle --debug --flavor kukeleegu
+    artifacts:
+      - *.aab
