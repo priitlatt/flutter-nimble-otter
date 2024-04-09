@@ -58,6 +58,20 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    // Specifies the flavor dimensions you want to use. The order in which you
+    // list the dimensions determines their priority, from highest to lowest,
+    // when Gradle merges variant sources and configurations. You must assign
+    // each product flavor you configure to one of the flavor dimensions.
+    flavorDimensions += ["kana"]
+
+    productFlavors {
+        kukeleegu {
+            dimension "kana"
+            applicationIdSuffix ".kukeleegu"
+        }
+    }
+
 }
 
 flutter {
