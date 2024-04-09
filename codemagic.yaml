@@ -5,5 +5,8 @@ workflows:
     scripts:
       - flutter build appbundle --debug --flavor kukeleegu
       - find "build/app/outputs/bundle" -name "*.aab" -exec sh -c 'n=$(basename "{}" ".aab"); mv "{}" "$(dirname {})/${n}-something.aab"' \;
+    publishers:
+      script:
+        - find "$CM_BUILD_OUTPUT_DIR" -name "*.aab" -exec sh -c 'n=$(basename "{}" "-kukeleeguDebug.aab"); mv "{}" "$(dirname {})/$n.aab"' \;
     artifacts:
       - "build/app/outputs/bundle/**/*.aab"
