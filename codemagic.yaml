@@ -4,5 +4,6 @@ workflows:
       flutter: 3.19.5
     scripts:
       - flutter build appbundle --debug --flavor kukeleegu
+      - find "build/app/outputs/bundle" -name "*.aab" -exec sh -c 'n=$(basename "{}" ".aab"); mv "{}" "$(dirname {})/${n}-something.aab"' \;
     artifacts:
-      - "**/*.aab"
+      - "build/app/outputs/bundle/**/*.aab"
